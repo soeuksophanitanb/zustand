@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.todo {
+  @apply w-[550px] rounded-md bg-white p-[20px] my-10 mx-auto shadow-sm;
+}
+
+.form {
+  @apply grid grid-cols-[1fr_auto] gap-3;
+}
+
+.btn {
+  @apply text-center bg-[#1f2937] text-white px-3 rounded-sm;
+}
+
+.input {
+  @apply border-gray-800 border rounded-sm px-3;
+}
+
+.list {
+  @apply mt-6 flex flex-col gap-3;
+}
+
+.list-item {
+  @apply bg-indigo-500 p-3 rounded-sm text-white font-bold flex justify-between items-center;
+}
+
+.btn-edit {
+  @apply bg-white text-gray-800 px-3 py-1 rounded-sm;
+}
+
+.btn-delete {
+  @apply bg-white text-gray-800 px-3 py-1 rounded-sm;
+}

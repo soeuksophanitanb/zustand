@@ -1,42 +1,34 @@
 import { create } from "zustand";
 
-export const useCounter = create((set) => ({
-  count: 0,
-  increase: () =>
+export const useMyStore = create((set) => ({
+  todos: [{ id: 1, title: "Hello World" }],
+  setTodo: (title) =>
     set((state) => ({
-      count: state.count + 1,
+      todos: [...state.todos, { id: Math.random(), title }],
     })),
-  dec: () =>
+  setEdit: (newTitle, id) =>
     set((state) => ({
-      count: state.count - 1,
+      todos: state.todos.map((t) =>
+        t.id === id ? { ...t, title: newTitle } : t
+      ),
+    })),
+  setDelete: (id) =>
+    set((state) => ({
+      todos: state.todos.filter((t) => t.id !== id),
+    })),
+  oldId: null,
+  setOldId: (id) =>
+    set(() => ({
+      oldId: id,
+    })),
+  oldTitle: null,
+  setOldTitle: (title) =>
+    set(() => ({
+      oldTitle: title,
     })),
   isOpen: false,
   setOpen: () =>
     set((state) => ({
       isOpen: !state.isOpen,
-    })),
-}));
-
-export const usePerson = create((set) => ({
-  user: [{ id: 1, name: "John Wick" }],
-  setPerson: (name) =>
-    set((state) => ({
-      user: [...state.user, { id: state.user.length + 1, name }],
-    })),
-  setEditPerson: (newName, id) =>
-    set((state) => ({
-      user: state.user.map((p) => (p.id == id ? { ...p, name: newName } : p)),
-    })),
-  setDeletePerson: (id) =>
-    set((state) => ({
-      user: state.user.filter((p) => p.id !== id),
-    })),
-}));
-
-export const useOldPerson = create((set) => ({
-  oldId: null,
-  setOldId: (oldid) =>
-    set(() => ({
-      oldId: oldid,
     })),
 }));
