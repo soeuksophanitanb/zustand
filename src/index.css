@@ -33,3 +33,24 @@
 .btn-delete {
   @apply bg-white text-gray-800 px-3 py-1 rounded-sm;
 }
+
+.form-edit {
+  @apply fixed top-0 left-0 w-full h-[100vh] grid place-items-center;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8)
+  );
+}
+
+.mark {
+  @apply text-gray-300 line-through;
+}
+
+.flex.gap-3 button {
+  @apply active:translate-y-2;
+}
+
+.form-edit form {
+  @apply p-3 bg-white rounded-sm;
+}

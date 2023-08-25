@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useMyStore } from "../zustand/store";
 
 const FormEdit = () => {
-  const { setEdit, oldId, setOpen } = useMyStore();
+  const { setEdit, oldId, setOpen, oldTitle } = useMyStore();
   const inputRef = useRef();
   const handleEdit = (e) => {
     e.preventDefault();
@@ -12,9 +12,14 @@ const FormEdit = () => {
     setOpen();
   };
   return (
-    <div className="fixed w-full h-[100vh] grid place-items-center">
+    <div className="form-edit">
       <form onSubmit={handleEdit}>
-        <input className="input" ref={inputRef} type="text" />
+        <input
+          defaultValue={oldTitle}
+          className="input"
+          ref={inputRef}
+          type="text"
+        />
         <button className="btn-edit">Edit</button>
         <button onClick={setOpen} className="btn-edit">
           Cancel
